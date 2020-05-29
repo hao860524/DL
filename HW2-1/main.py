@@ -80,14 +80,14 @@ if __name__ == '__main__':
     print(corr_df)
     correlation = corr_df.corr(method='pearson')
     print(correlation)
-    # collect  countries in a set denoted as C.
+    # collect countries in a set denoted as C.
     selected_countrys = []
     for index, row in correlation.iterrows():
         for row_c in row[row > threshold].index:
             if row_c != index and row_c not in selected_countrys:
                 selected_countrys.append(row_c)
 
-    print(len(selected_countrys), selected_countrys)  # 被選到國家
+    print(len(selected_countrys), selected_countrys)  # selected countrys (C)
     ##### plot the correlation coefficients #####
 
     figure = sb.heatmap(correlation).get_figure()
